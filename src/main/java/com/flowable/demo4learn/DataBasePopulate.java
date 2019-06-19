@@ -1,5 +1,8 @@
 package com.flowable.demo4learn;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,8 +19,10 @@ public class DataBasePopulate implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Person person = new Person("1234", "Kermit");
-		personRepository.save(person);
+		List<Person> personList = new ArrayList<Person>();
+		personList.add(new Person("0001", "kermit"));
+		personList.add(new Person("0002", "Jon"));
+		personRepository.saveAll(personList);
 	}
 
 }
